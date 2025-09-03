@@ -1,0 +1,12 @@
+In Visual Studio:
+Tools → NuGet Package Manager → Package Manager Console
+
+At the bottom panel (it looks like a PowerShell terminal but tied to NuGet), run:
+
+Add-Migration Initial
+Update-Database
+
+
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add Initial
+dotnet ef database update
