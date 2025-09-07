@@ -1,0 +1,15 @@
+{
+  "App_Title": "RubyApp",
+  "Login_Title": "Đăng nhập vào RubyApp",
+  "Login_Username": "Tài khoản",
+  "Login_Password": "Mật khẩu",
+  "Login_Button": "Đăng nhập",
+  "Login_Language": "Ngôn ngữ",
+  "Login_Invalid": "Sai tài khoản hoặc mật khẩu.",
+  "Login_EnterBoth": "Vui lòng nhập tài khoản và mật khẩu.",
+  "Menu_Admin": "Quản trị",
+  "Menu_Users": "Người dùng",
+  "Menu_Session": "Phiên",
+  "Menu_Logout": "Đăng xuất",
+  "Main_Welcome": "Xin chào, {0}!"
+}

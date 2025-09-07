@@ -1,13 +1,6 @@
-﻿using RubyApp.Data;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using RubyApp.Data;
+using RubyApp.Localization;
 
 namespace RubyApp
 {
@@ -20,8 +13,16 @@ namespace RubyApp
             _currentUser = user;
             InitializeComponent();
 
-            Text = $"RubyApp — {_currentUser.Username} ({_currentUser.Role})";
-            lblWelcome.Text = $"Welcome, {_currentUser.Username}!";
+            // apply i18n strings
+            Text = I18n.T("App_Title");
+            adminToolStripMenuItem.Text = I18n.T("Menu_Admin");
+            usersToolStripMenuItem.Text = I18n.T("Menu_Users");
+            sessionToolStripMenuItem.Text = I18n.T("Menu_Session");
+            logoutToolStripMenuItem.Text = I18n.T("Menu_Logout");
+
+            lblWelcome.Text = I18n.Tf("Main_Welcome", _currentUser.Username);
+
+            // role-based visibility
             adminToolStripMenuItem.Visible = _currentUser.Role == UserRole.SuperAdmin;
         }
 
@@ -33,7 +34,6 @@ namespace RubyApp
 
         private void logoutToolStripMenuItem_Click(object? sender, System.EventArgs e)
         {
-            // Signal Program.cs to show LoginForm again
             DialogResult = DialogResult.Abort;
             Close();
         }

@@ -1,0 +1,15 @@
+{
+  "App_Title": "RubyApp",
+  "Login_Title": "Sign in to RubyApp",
+  "Login_Username": "Username",
+  "Login_Password": "Password",
+  "Login_Button": "Login",
+  "Login_Language": "Language",
+  "Login_Invalid": "Invalid credentials.",
+  "Login_EnterBoth": "Enter username and password.",
+  "Menu_Admin": "Admin",
+  "Menu_Users": "Users",
+  "Menu_Session": "Session",
+  "Menu_Logout": "Logout",
+  "Main_Welcome": "Welcome, {0}!"
+}

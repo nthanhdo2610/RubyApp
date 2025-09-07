@@ -1,4 +1,9 @@
-﻿using RubyApp.Security;
+﻿using RubyApp.Data;
+using RubyApp.Localization;
+using RubyApp.Security;
+using RubyApp.Services;
+using System;
+using System.Windows.Forms;
 
 namespace RubyApp
 {
@@ -9,6 +14,10 @@ namespace RubyApp
         {
             ApplicationConfiguration.Initialize();
             Bootstrapper.EnsureDatabase();
+
+            // load preferred language
+            var settings = SettingsService.Load();
+            I18n.SetCulture(settings.UiCulture);
 
             bool exitApp = false;
 
@@ -22,20 +31,11 @@ namespace RubyApp
                     using var main = new MainForm(login.LoggedInUser);
                     var mainResult = main.ShowDialog();
 
-                    if (mainResult == DialogResult.Abort)
-                    {
-                        // User clicked Logout → show LoginForm again
-                        continue;
-                    }
-                    else
-                    {
-                        // MainForm closed normally → exit app
-                        exitApp = true;
-                    }
+                    if (mainResult == DialogResult.Abort) continue; // logout => back to login
+                    exitApp = true;
                 }
                 else
                 {
-                    // Login cancelled/closed → exit app
                     exitApp = true;
                 }
             }
